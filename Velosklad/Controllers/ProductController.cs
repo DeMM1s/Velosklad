@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Velosklad.Core.Requests;
+using Velosklad.Core.Products;
 using Velosklad.Core.Models;
 using MediatR;
 
 namespace Velosklad.Controllers
 {
+    [Route("/product")]
+    [ApiController]
     public class ProductController : Controller
     {
         private readonly IMediator _mediator;
@@ -16,7 +18,7 @@ namespace Velosklad.Controllers
 
         //Velosklad.ru/Product/Create
         [HttpPost]
-        public async Task<ProductDto> Create(CreateProductRequest request, CancellationToken cancellationToken)
+        public async Task<ProductDto> Create(CreateProduct.Request request, CancellationToken cancellationToken)
         {
             var createProductResponse = await _mediator.Send(request, cancellationToken);
 
