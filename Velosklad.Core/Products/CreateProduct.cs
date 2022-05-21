@@ -30,7 +30,7 @@ namespace Velosklad.Core.Products
                 _productRepository.Add(product);
                 await _productRepository.Commit(cancellationToken);
 
-                return new Response(new Models.ProductDto
+                return new Response(new ProductDto
                 {
                     Name = request.Name,
                     Price = request.Price,
