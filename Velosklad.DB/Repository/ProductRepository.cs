@@ -6,7 +6,7 @@ namespace Velosklad.DB.Repository
 {
     public class ProductRepository : Repository<OrderDbContext>, IProductRepository
     {
-        protected ProductRepository(IDbContextFactory<OrderDbContext> factory) : base(factory)
+        public ProductRepository(IDbContextFactory<OrderDbContext> factory) : base(factory)
         {
         }
 

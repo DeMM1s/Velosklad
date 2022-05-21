@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Velosklad.Domain", "Veloskl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Velosklad.DB", "Velosklad.DB\Velosklad.DB.csproj", "{B412635E-B292-4626-80BB-DFDBEC523F76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Velosklad.Infrastructure", "Velosklad.Infrastructure\Velosklad.Infrastructure.csproj", "{60E44F44-E4C0-4597-B44B-896C6FB026D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B412635E-B292-4626-80BB-DFDBEC523F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B412635E-B292-4626-80BB-DFDBEC523F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B412635E-B292-4626-80BB-DFDBEC523F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E44F44-E4C0-4597-B44B-896C6FB026D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E44F44-E4C0-4597-B44B-896C6FB026D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E44F44-E4C0-4597-B44B-896C6FB026D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E44F44-E4C0-4597-B44B-896C6FB026D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

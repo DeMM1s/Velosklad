@@ -1,6 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+
 using System.Reflection;
-using Velosklad.Core.Handlers;
+using Velosklad.Extensions;
+using Velosklad.Core.Products;
 
 namespace Velosklad
 {
@@ -20,9 +23,9 @@ namespace Velosklad
         {
             services.AddControllers();
 
-            services.AddMediatR(GetMediatrAssembly());
+            services.AddMediatR(GetMediatrAssemblies().ToArray());
 
-            services.AddSingleton<CreateProductHandler>();
+            services.AddDatabase(_configuration);
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
@@ -34,7 +37,15 @@ namespace Velosklad
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            } 
+            }
+
+            app.UseSwagger()
+                .UseSwaggerUI(options =>
+                {
+                    
+                });
+
+            app.UseRouting();
 
             app.UseAuthorization();
 
@@ -42,12 +53,11 @@ namespace Velosklad
             {
                 endpoints.MapControllers();
             });
-
         }
 
-        private Assembly[] GetMediatrAssembly()
+        private IEnumerable<Assembly> GetMediatrAssemblies()
         {
-            throw new NotImplementedException();
+            yield return Assembly.GetAssembly(typeof(CreateProduct.Request))!;
         }
     }
 }

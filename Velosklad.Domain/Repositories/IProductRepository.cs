@@ -1,8 +1,9 @@
 ﻿using Velosklad.Domain.Models;
+using Velosklad.Domain.Shared;
 
 namespace Velosklad.Domain.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository
     {
         void Add(Product product);
 
