@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 using System.Reflection;
 using Velosklad.Extensions;
@@ -58,6 +57,7 @@ namespace Velosklad
         private IEnumerable<Assembly> GetMediatrAssemblies()
         {
             yield return Assembly.GetAssembly(typeof(CreateProduct.Request))!;
+            yield return Assembly.GetAssembly(typeof(GetProduct.Request))!;
         }
     }
 }

@@ -16,8 +16,7 @@ namespace Velosklad.Controllers
             _mediator = mediator;
         }
 
-        //Velosklad.ru/Product/Create
-        [HttpPost]
+        [HttpPost("/create")]
         public async Task<ProductDto> Create(CreateProduct.Request request, CancellationToken cancellationToken)
         {
             var createProductResponse = await _mediator.Send(request, cancellationToken);
@@ -28,6 +27,16 @@ namespace Velosklad.Controllers
                 Price = createProductResponse.Product.Price,
                 Amount = createProductResponse.Product.Amount
             };
+        }
+
+        [HttpGet("/get{productId}")]
+        public async Task<IActionResult> Get(int productId, CancellationToken cancellationToken)
+        {
+            var request = new GetProduct.Request(productId);
+
+            var getProductResponse = await _mediator.Send(request, cancellationToken);
+
+            return Ok(getProductResponse);
         }
     }
 }
