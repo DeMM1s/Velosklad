@@ -13,11 +13,11 @@ namespace Velosklad.Core.Products
 
         public class Handler : IRequestHandler<Request, Response>
         {
-            private readonly IProductRepository _productRepository;
+            //private readonly IProductRepository _productRepository;
 
-            public Handler(IProductRepository productRepository)
+            public Handler(/*IProductRepository productRepository*/)
             {
-                _productRepository = productRepository;
+                //_productRepository = productRepository;
             }
 
             public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
@@ -27,8 +27,8 @@ namespace Velosklad.Core.Products
                     request.Price,
                     request.Amount);
 
-                _productRepository.Add(product);
-                await _productRepository.Commit(cancellationToken);
+                //_productRepository.Add(product);
+                //await _productRepository.Commit(cancellationToken);
 
                 return new Response(new ProductDto
                 {
