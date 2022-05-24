@@ -13,7 +13,8 @@ namespace Velosklad.Extensions
         {
             var connectionString = configuration.GetConnectionString(Constants.ConnectionName);
 
-            services.AddDbContextFactory<OrderDbContext>(dbContextOptionsBuilder => dbContextOptionsBuilder.UseNpgsql(connectionString));
+            services.AddDbContextFactory<OrderDbContext>(dbContextOptionsBuilder =>
+            dbContextOptionsBuilder.UseNpgsql(connectionString));
             services.AddTransient<IProductRepository, ProductRepository>();
 
             return services;

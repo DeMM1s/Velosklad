@@ -7,24 +7,22 @@ namespace Velosklad.Core.Users
 {
     public class CreateUser
     {
-        public record Request(string Name, string Login, string Password, ICollection<Order> Orders) : IRequest<Response>;
+        public record RequestCreateUser(string Name, string Login, string Password) : IRequest<ResponseCreateUser>;
 
-        public record Response(UserDto User);
-        public class Handler : IRequestHandler<Request, Response>
+        public record ResponseCreateUser(UserDto User);
+        public class Handler : IRequestHandler<RequestCreateUser, ResponseCreateUser>
         {
             public Handler() { }
-            public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
+            public async Task<ResponseCreateUser> Handle(RequestCreateUser request, CancellationToken cancellationToken)
             {
                 var user = new User(request.Name,
                                     request.Login,
-                                    request.Password,
-                                    request.Orders);
-                return new Response(new UserDto
+                                    request.Password);
+                return new ResponseCreateUser(new UserDto
                 {
-                    Name = request.Name,
-                    Login = request.Login,
-                    Password = request.Password,
-                    Orders = request.Orders
+                    Name = user.Name,
+                    Login = user.Login,
+                    Password = user.Password,
                 });
             }
         }

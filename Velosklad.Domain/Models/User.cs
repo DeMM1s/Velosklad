@@ -19,13 +19,11 @@ namespace Velosklad.Domain.Models
 
         public User( string name,
                      string login,
-                     string password,
-                     ICollection<Order> orders)
+                     string password)
         {
             Name = name;
             Login = login;
             Password = password;
-            Orders = orders;
         }
     }
 }

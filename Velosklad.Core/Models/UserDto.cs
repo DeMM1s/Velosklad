@@ -4,13 +4,13 @@ namespace Velosklad.Core.Models
 {
     public class UserDto
     {
-        public int Id { get; init; }
+        public int Id { get; set; }
 
-        public string Name { get; init; }
+        public string Name { get; set; }
 
         public string Login { get; set; }
 
         public string Password { get; set; }
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        //public ICollection<Order>? Orders { get; set; }
     }
 }

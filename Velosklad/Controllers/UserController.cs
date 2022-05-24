@@ -17,17 +17,11 @@ namespace Velosklad.Controllers
         }
 
         [HttpPost("/createUser")]
-        public async Task<UserDto> Create(CreateUser.Request request, CancellationToken cancellationToken)
+        public async Task<UserDto> Create(CreateUser.RequestCreateUser request, CancellationToken cancellationToken)
         {
             var createUserResponse = await _mediator.Send(request, cancellationToken);
 
-            return new UserDto
-            {
-                Name = createUserResponse.User.Name,
-                Login = createUserResponse.User.Login,
-                Password = createUserResponse.User.Password,
-                Orders = createUserResponse.User.Orders
-            };
+            return createUserResponse.User;
         }
     }
 }
