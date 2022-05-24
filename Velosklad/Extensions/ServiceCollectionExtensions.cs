@@ -15,9 +15,7 @@ namespace Velosklad.Extensions
 
             services.AddDbContextFactory<OrderDbContext>(dbContextOptionsBuilder =>
             dbContextOptionsBuilder.UseNpgsql(connectionString));
-
-            services
-                .AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             return services;
         }
